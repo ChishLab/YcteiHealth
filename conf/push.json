@@ -1,0 +1,24 @@
+{
+  "email": {
+    "enable": false,
+    "smtp_address": "",
+    "smtp_port": 465,
+    "send_email": "",
+    "send_pwd": "",
+    "receive_email": ""
+  },
+  "wechat": {
+    "enable": false,
+    "send_key": ""
+  },
+  "qmsg": {
+    "enable": false,
+    "key": "",
+    "type": "send",
+    "qq_num": ""
+  },
+  "pipehub": {
+    "enable": false,
+    "key": ""
+  }
+}

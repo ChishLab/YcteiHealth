@@ -1,0 +1,77 @@
+[
+  {
+    "welcome": "正在签到ing...",
+    "phone": "111****1111",
+    "password": "**",
+    "device_id": "**",
+    "ykt_score": true,
+    "healthy_checkin": {
+      "one_check": {
+        "enable": true,
+        "post_json": {
+          "areaStr": "{\"address\":\"######\",\"text\":\"######\",\"code\":\"######\"}",
+          "deptStr": "",
+          "deptid": "",
+          "stuNo": "",
+          "username": "",
+          "userid": "",
+          "updatainfo": []
+        }
+      },
+      "two_check": {
+        "enable": false,
+        "post_json":{
+          "address": "######",
+          "stuNo": "",
+          "longitude": "**",
+          "latitude": "**"
+        }
+      }
+    },
+    "campus_checkin": {
+      "enable": false,
+      "post_json": {
+          "areaStr": "",
+          "deptStr": "",
+          "deptid": "",
+          "stuNo": "",
+          "username": "",
+          "userid": "",
+          "updatainfo": [
+            {
+              "propertyname": "temperature",
+              "value": "36.4"
+            },
+            {
+              "propertyname": "symptom",
+              "value": "无症状"
+            }
+          ]
+        }
+    },
+    "push": {
+      "email": {
+        "enable": false,
+        "smtp_address": "",
+        "smtp_port": 465,
+        "send_email": "",
+        "send_pwd": "",
+        "receive_email": ""
+      },
+      "wechat": {
+        "enable": false,
+        "send_key": ""
+      },
+      "qmsg": {
+        "enable": false,
+        "key": "**",
+        "type": "send",
+        "qq_num": "**"
+      },
+      "pipehub": {
+        "enable": false,
+        "key": ""
+      }
+    }
+  }
+]
