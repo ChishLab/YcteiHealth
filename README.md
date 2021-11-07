@@ -38,7 +38,7 @@
 - 整个 json 文件使用一个 `[]` 列表用来存储打卡用户数据，每一个用户占据了一个 `{}`键值对，初次修改务必填写的数据为：`phone`、`password`、`device_id`、健康打卡的开关，校内打卡开关（有则开），推送设置 `push`。
 - 关于 `post_json`，如若打卡推送数据中无错误，则不用管，若有 null，或其他获取不到的情况，则酌情修改即可，和推送是一一对应的。
 
-设备id认证软件：[点我下载]()
+> 设备id认证软件：[点我下载](https://pan.fchish.cn/index.php/s/wJB6H27NJ5LtrpB)
 （根据截图判断自己属于哪一类[【1】](https://cdn.jsdelivr.net/gh/ReaJason/17wanxiaoCheckin/Pictures/one.png)、[【2】](https://cdn.jsdelivr.net/gh/ReaJason/17wanxiaoCheckin/Pictures/two.png)）
 
 ### 🤝统一推送配置
@@ -83,7 +83,7 @@
 - 由于前面使用软件获取了 device_id，所以请使用 **支付宝小程序** 查看打卡结果是否记录上去，以免手机登录 device_id 失效
 
 
-## Crontab 定时任务
+## ⏱️Crontab 定时任务
 1. 首先在命令行执行 `crontab -e` 打开 crontab 的配置文件
 2. 然后按 `i` 进行编辑
 3. 在 crontab 的配置文件中的新一行输入 `0 5 * * * /home/YcteiHealth/health.sh > /dev/null 2>&1` 这一句
@@ -92,7 +92,7 @@
 > - `/home/YcteiHealth/health.sh` 是定时执行所需脚本
 > - `> /dev/null 2>&1` 是禁止系统在执行完命令后在 /tmp 文件夹下创建日志文件记录执行状况
 
-## 脚本篇 (health.sh)
+## 🖇️脚本篇 (health.sh)
 1. 前往签到脚本所在目录 `cd /home/YcteiHealth`
 2. 在脚本目录下创建一个文件名为 `health.sh` 的 .sh 脚本
 3. 在脚本开头写个 bash 文件头，指定脚本类型 `!#/bin/bash`
@@ -103,7 +103,7 @@
 > - `-c` 执行命令
 > - `"cd /home/YcteiHealth;python index.py;exec /bin/bash"` /tp 到打卡脚本的目录下，用 python 运行名为 index.py 的 python 脚本，最后再执行运行 /bin/bash 来保证脚本运行完能恢复会话查看执行结果。（命令间用 ; 隔开）
 
-## 宝塔定时任务出现的问题
+## 🚩宝塔定时任务出现的问题
 - **查看文章失败的错误**
 > 宝塔的定时任务其实也是使用系统的 `crontab` 来执行，但直接在脚本内容中 cd 到目录再执行脚本可能会出现莫名其妙的读取不到配置文件的错误（与在路由器上用 screen cd 到 frpc 目录但是找不到目录的问题类似）
 
@@ -112,8 +112,35 @@
 
 ## 📜FQA
 
-- 若第一类健康打卡或校内大卡打卡推送显示，需要修改对应位置下的 areaStr，修改格式为：`"areaStr": "{\"address\":\"天心区青园路251号中南林业科技大学\",\"text\":\"湖南省-长沙市-天心区\",\"code\":\"\"}"` ，`address`：对应手机打卡界面的下面一行，`text`：对应手机打卡界面的上面一行，根据自己的来，上面填什么就是什么，若是校内打卡的地址获取不到，可查看健康打卡的打卡数据推送里面的 areaStr 复制即可。
+- 若第一类健康打卡或校内大卡打卡推送显示，需要修改对应位置下的 areaStr，修改格式为：`"areaStr": "{\"address\":\"解放南路285号盐城工业职业技术学院\",\"text\":\"江苏省-盐城市-盐都区\",\"code\":\"\"}"` ，`address`：对应手机打卡界面的下面一行，`text`：对应手机打卡界面的上面一行，根据自己的来，上面填什么就是什么，若是校内打卡的地址获取不到，可查看健康打卡的打卡数据推送里面的 areaStr 复制即可。
 - 若打卡结果为 `{'msg': '参数不合法', 'code': '10002', 'data': ;'deptid can not be null'}`，初步认为你们学校打卡数据无法自动获取，每次需要自己填写数据，解决办法为手机登录打卡抓签到包，然后在配置文件的 `post_json` 中填下你的打卡数据。
 
 
 ### **[详情点击我跳转到源项目查看MarkDown](https://github.com/ReaJason/17wanxiaoCheckin)**
+
+<br>
+
+## 🌍MIT LICENSE
+```
+MIT License
+
+Copyright (c) 2021 ReaJason
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
